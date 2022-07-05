@@ -88,29 +88,29 @@ $shipping = $shippingObj->getShippingById($_REQUEST['id']);
                                                 <td>สูงสุดไม่เกิน {$shipping['packageInsuranceFee']} บาท</td>
                                                 </tr>  ";
                                     }
-                                   
+
                                     ?>
                                 </tbody>
                             </table>
                         </div>
                         <div class="form-group">
                             <p class="h3">เงื่อนไขการบริการ</p>
-                            <p><?php 
-                            echo preg_replace('/^(.+)(\s*)$/m', '<li>$1</li>', $shipping['termsOfService']);
-                            ?></p>
+                            <p><?php
+                                echo preg_replace('/^(.+)(\s*)$/m', '<li>$1</li>', $shipping['termsOfService']);
+                                ?></p>
                         </div>
-                        <div class="form-group">
-                            <p class="h3">เงื่อนไขการตีคืนสินค้า</p>
-                            <p><?php 
+                        <?php
+                        if (strlen($shipping['returnRefundPolicy']) > 0) {
+                            echo "<p class='h3'>เงื่อนไขการตีคืนสินค้า</p>";
                             echo preg_replace('/^(.+)(\s*)$/m', '<li>$1</li>', $shipping['returnRefundPolicy']);
-                            ?></p>
-                        </div>
-                        <div class="form-group">
-                            <p class="h3">เงื่อนไขการเก็บเงินปลายทาง</p>
-                            <p><?php 
+                        } else {
+                        }
+                        if (strlen($shipping['cashOnDeliveyPolicy']) > 0) {
+                            echo "<p class='h3'>เงื่อนไขการเก็บเงินปลายทาง</p>";
                             echo preg_replace('/^(.+)(\s*)$/m', '<li>$1</li>', $shipping['cashOnDeliveyPolicy']);
-                            ?></p>
-                        </div>
+                        } else {
+                        }
+                        ?>
                         <?php
                         echo "
                     <a href='edit_form.php?id={$shipping['companyID']}&action=edit' class='btn btn-info'>แก้ไข</a>
