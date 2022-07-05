@@ -97,19 +97,22 @@ $shipping = $shippingObj->getShippingById($_REQUEST['id']);
                             <p class="h3">เงื่อนไขการบริการ</p>
                             <p><?php
                                 echo preg_replace('/^(.+)(\s*)$/m', '<li>$1</li>', $shipping['termsOfService']);
+                                echo "<br/>";
                                 ?></p>
                         </div>
                         <?php
                         if (strlen($shipping['returnRefundPolicy']) > 0) {
                             echo "<p class='h3'>เงื่อนไขการตีคืนสินค้า</p>";
+                            echo "<br/>";
                             echo preg_replace('/^(.+)(\s*)$/m', '<li>$1</li>', $shipping['returnRefundPolicy']);
-                        } else {
-                        }
+                            echo "<br/>";
+                        } 
                         if (strlen($shipping['cashOnDeliveyPolicy']) > 0) {
                             echo "<p class='h3'>เงื่อนไขการเก็บเงินปลายทาง</p>";
+                            echo "<br/>";
                             echo preg_replace('/^(.+)(\s*)$/m', '<li>$1</li>', $shipping['cashOnDeliveyPolicy']);
-                        } else {
-                        }
+                            echo "<br/>";
+                        } 
                         ?>
                         <?php
                         echo "
