@@ -7,7 +7,7 @@ CREATE DATABASE shipping;
 
 -- Create Table
 
-CREATE TABLE `shipping`.`shippingcompany` (`id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , `description` TEXT NOT NULL , `termsOfService` TEXT NOT NULL , `returnRefundPolicy` TEXT NOT NULL , `cashOnDeliveyPolicy` TEXT NOT NULL , `weight` INT NOT NULL DEFAULT '0' , `size` INT NOT NULL DEFAULT '0' , `packageInsuranceFee` INT NOT NULL DEFAULT '0' , `SpecialAreaFee` INT NOT NULL DEFAULT '0' , `bounceChargeFee` INT NOT NULL DEFAULT '0' , `createAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `shipping`.`shippingcompany` (`id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , `description` TEXT NOT NULL , `termsOfService` TEXT NOT NULL , `returnRefundPolicy` TEXT NOT NULL , `cashOnDeliveyPolicy` TEXT NOT NULL , `weight` INT NOT NULL DEFAULT '0' , `size` INT NOT NULL DEFAULT '0' , `packageInsuranceFee` INT NOT NULL DEFAULT '0' , `specialAreaFee` INT NOT NULL DEFAULT '0' , `bounceChargeFee` INT NOT NULL DEFAULT '0' , `createAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 
 -- Insert shippingCompany data
