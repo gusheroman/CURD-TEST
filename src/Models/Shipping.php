@@ -9,15 +9,15 @@ class Shipping extends Db
     public function getAllShipping($filters = [])
     {
         $where = "";
-        if (isset($filters['id'])) {
-            if ($filters['id']) {
-                $where .= " AND shippingcompany.id = :id ";
+        if (isset($filters['companyID'])) {
+            if ($filters['companyID']) {
+                $where .= " AND shippingcompany.companyID = :companyID ";
             } else {
-                unset($filters['id']);
+                unset($filters['companyID']);
             }
         }
         $sql = "SELECT 
-        shippingcompany.id, 
+        shippingcompany.companyID, 
         shippingcompany.name,
         shippingcompany.description,
         shippingcompany.termsOfService,
@@ -32,7 +32,7 @@ class Shipping extends Db
         FROM 
         shippingcompany
         WHERE
-        shippingcompany.id > 0
+        shippingcompany.companyID > 0
         {$where}     
         ";
         $stmt = $this->pdo->prepare($sql);
@@ -68,7 +68,7 @@ class Shipping extends Db
     public function getAllShippingFilter()
     {
         $sql = "SELECT 
-        shippingcompany.id, 
+        shippingcompany.companyID, 
         shippingcompany.name
         FROM 
         shippingcompany
@@ -108,7 +108,7 @@ class Shipping extends Db
     }
     public function deleteShipping($id)
     {
-        $sql = "DELETE FROM shippingcompany WHERE id = ?";
+        $sql = "DELETE FROM shippingcompany WHERE companyID = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
         return true;
@@ -117,7 +117,7 @@ class Shipping extends Db
     public function getShippingById($id)
     {
         $sql = "SELECT 
-        shippingcompany.id, 
+        shippingcompany.companyID, 
         shippingcompany.name,
         shippingcompany.description,
         shippingcompany.termsOfService,
@@ -130,7 +130,7 @@ class Shipping extends Db
         shippingcompany.bounceChargeFee,
         shippingcompany.createAt
         FROM shippingcompany WHERE 
-        shippingcompany.id = ?";
+        shippingcompany.companyID = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
         $data = $stmt->fetchAll();
@@ -153,7 +153,7 @@ class Shipping extends Db
         packageInsuranceFee = :packageInsuranceFee,
         SpecialAreaFee = :SpecialAreaFee,
         bounceChargeFee = :bounceChargeFee 
-        WHERE id = :id
+        WHERE companyID = :id
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($shipping);

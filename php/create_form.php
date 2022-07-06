@@ -34,7 +34,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="size">ขนาดสูงสุด (เซนติเมตร)</label>
-                                <input type="number" name="size" id="size" class="form-control">
+                                <input type="number" name="size" id="size" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="packageInsuranceFee">ค่าประกันพัสดุ (บาท)</label>
@@ -50,7 +50,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="termsOfService">เงื่อนไขการบริการ</label>
-                                <TEXTAREA name="termsOfService" id="termsOfService" rows="10" class="form-control"></TEXTAREA>
+                                <TEXTAREA name="termsOfService" id="termsOfService" rows="10" class="form-control" required></TEXTAREA>
                             </div>
                             <div class="form-group">
                                 <label for="returnRefundPolicy">เงื่อนไขการตีคืนสินค้า</label>

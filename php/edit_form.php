@@ -30,7 +30,7 @@ if ($_REQUEST['action'] == 'edit') {
                     <div class="card-body">
                         <form action="submit_form.php" method="post">
                             <input type="hidden" name="action" value="<?php echo ($_REQUEST['action'] == 'edit') ? "edit" : "add"; ?>">
-                            <input type="hidden" name="id" value="<?php echo $shipping['id']; ?>">
+                            <input type="hidden" name="id" value="<?php echo $shipping['companyID']; ?>">
 
                             <div class="form-group">
                                 <label for="name">ชื่อขนส่ง</label>
