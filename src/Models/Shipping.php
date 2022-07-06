@@ -9,15 +9,15 @@ class Shipping extends Db
     public function getAllShipping($filters = [])
     {
         $where = "";
-        if (isset($filters['companyID'])) {
-            if ($filters['companyID']) {
-                $where .= " AND shippingcompany.companyID = :companyID ";
+        if (isset($filters['id'])) {
+            if ($filters['id']) {
+                $where .= " AND shippingcompany.id = :id ";
             } else {
-                unset($filters['companyID']);
+                unset($filters['id']);
             }
         }
         $sql = "SELECT 
-        shippingcompany.companyID, 
+        shippingcompany.id, 
         shippingcompany.name,
         shippingcompany.description,
         shippingcompany.termsOfService,
@@ -32,7 +32,7 @@ class Shipping extends Db
         FROM 
         shippingcompany
         WHERE
-        shippingcompany.companyID > 0
+        shippingcompany.id > 0
         {$where}     
         ";
         $stmt = $this->pdo->prepare($sql);
@@ -41,34 +41,10 @@ class Shipping extends Db
         return $data;
     }
 
-    public function getSpecialArea($id)
-    {
-        $sql = "
-        SELECT
-        shippingcompany.name, 
-        province.PROVINCE_NAME,
-        amphur.AMPHUR_NAME,
-        amphur.POSTCODE,
-        district.DISTRICT_NAME,
-        geography.GEO_NAME
-        FROM special_area 
-        LEFT JOIN shippingcompany ON shippingcompany.id = special_area.company_id 
-        LEFT JOIN province ON province.PROVINCE_ID = special_area.province_id 
-        LEFT JOIN amphur ON amphur.AMPHUR_ID = special_area.amphur_id 
-        LEFT JOIN district ON district.DISTRICT_ID = special_area.district_id 
-        LEFT JOIN geography ON geography.GEO_ID = special_area.geography_id 
-        WHERE 
-        shippingcompany.id = :id";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute($id);
-        $data = $stmt->fetchAll();
-        return $data;
-    }
-
     public function getAllShippingFilter()
     {
         $sql = "SELECT 
-        shippingcompany.companyID, 
+        shippingcompany.id, 
         shippingcompany.name
         FROM 
         shippingcompany
@@ -108,7 +84,7 @@ class Shipping extends Db
     }
     public function deleteShipping($id)
     {
-        $sql = "DELETE FROM shippingcompany WHERE companyID = ?";
+        $sql = "DELETE FROM shippingcompany WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
         return true;
@@ -117,7 +93,7 @@ class Shipping extends Db
     public function getShippingById($id)
     {
         $sql = "SELECT 
-        shippingcompany.companyID, 
+        shippingcompany.id, 
         shippingcompany.name,
         shippingcompany.description,
         shippingcompany.termsOfService,
@@ -130,7 +106,7 @@ class Shipping extends Db
         shippingcompany.bounceChargeFee,
         shippingcompany.createAt
         FROM shippingcompany WHERE 
-        shippingcompany.companyID = ?";
+        shippingcompany.id = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
         $data = $stmt->fetchAll();
@@ -153,7 +129,7 @@ class Shipping extends Db
         packageInsuranceFee = :packageInsuranceFee,
         SpecialAreaFee = :SpecialAreaFee,
         bounceChargeFee = :bounceChargeFee 
-        WHERE companyID = :id
+        WHERE id = :id
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($shipping);
