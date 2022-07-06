@@ -16,10 +16,6 @@ class Shipping extends Db
                 unset($filters['id']);
             }
         }
-
-
-
-
         $sql = "SELECT 
         shippingcompany.id, 
         shippingcompany.name,
@@ -44,6 +40,31 @@ class Shipping extends Db
         $data = $stmt->fetchAll();
         return $data;
     }
+
+    public function getSpecialArea($id)
+    {
+        $sql = "
+        SELECT
+        shippingcompany.name, 
+        province.PROVINCE_NAME,
+        amphur.AMPHUR_NAME,
+        amphur.POSTCODE,
+        district.DISTRICT_NAME,
+        geography.GEO_NAME
+        FROM special_area 
+        LEFT JOIN shippingcompany ON shippingcompany.id = special_area.company_id 
+        LEFT JOIN province ON province.PROVINCE_ID = special_area.province_id 
+        LEFT JOIN amphur ON amphur.AMPHUR_ID = special_area.amphur_id 
+        LEFT JOIN district ON district.DISTRICT_ID = special_area.district_id 
+        LEFT JOIN geography ON geography.GEO_ID = special_area.geography_id 
+        WHERE 
+        shippingcompany.id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($id);
+        $data = $stmt->fetchAll();
+        return $data;
+    }
+
     public function getAllShippingFilter()
     {
         $sql = "SELECT 
@@ -115,6 +136,8 @@ class Shipping extends Db
         $data = $stmt->fetchAll();
         return $data[0];
     }
+
+    
 
     public function updateShipping($shipping)
     {

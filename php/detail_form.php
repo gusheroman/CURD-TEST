@@ -113,7 +113,41 @@ $shipping = $shippingObj->getShippingById($_REQUEST['id']);
                             echo preg_replace('/^(.+)(\s*)$/m', '<li>$1</li>', $shipping['cashOnDeliveyPolicy']);
                             echo "<br/>";
                         } 
-                        ?>
+                        
+                        ?> 
+                        <p class="h3">พื้นที่พิเศษ</p>
+                    </br>
+                        <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>จังหวัด</th>
+                                        <th>ตำบล/แขวง</th>
+                                        <th>อำเภอ/เขต</th>
+                                        <th>รหัสไปรษณีย์</th>
+                                        <th>ภาค</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $id = array_intersect_key($_REQUEST, array_flip(
+                                        ['id']
+                                    ));
+                                    $specialArea = $shippingObj->getSpecialArea($id);
+                                    foreach ($specialArea as $specialAreas) {
+                                        echo "
+                                                <tr>											
+                                                    <td>{$specialAreas['PROVINCE_NAME']}</td>
+                                                    <td>{$specialAreas['DISTRICT_NAME']}</td>		
+                                                    <td>{$specialAreas['AMPHUR_NAME']}</td>
+                                                    <td>{$specialAreas['POSTCODE']}</td>	
+                                                    <td>{$specialAreas['GEO_NAME']}</td>									
+                                                </tr>
+                                            ";
+                                         }
+                                    ?>
+                                </tbody>
+                            </table>
+                            </br>
                         <?php
                         echo "
                     <a href='edit_form.php?id={$shipping['id']}&action=edit' class='btn btn-info'>แก้ไข</a>
