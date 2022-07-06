@@ -116,8 +116,8 @@ $shipping = $shippingObj->getShippingById($_REQUEST['id']);
                         ?>
                         <?php
                         echo "
-                    <a href='edit_form.php?id={$shipping['companyID']}&action=edit' class='btn btn-info'>แก้ไข</a>
-					<a href='submit_form.php?id={$shipping['companyID']}&action=delete' class='btn btn-danger'>ลบ</a>
+                    <a href='edit_form.php?id={$shipping['id']}&action=edit' class='btn btn-info'>แก้ไข</a>
+					<a href='submit_form.php?id={$shipping['id']}&action=delete' class='btn btn-danger'>ลบ</a>
                     ";
                         ?>
                     </div>

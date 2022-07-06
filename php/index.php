@@ -28,15 +28,15 @@ use App\Models\Shipping;
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">ขนส่ง</div>
                                 </div>
-                                <select name="companyID" class="form-control">
+                                <select name="id" class="form-control">
                                     <option value="">เลือก</option>
                                     <?php
                                     $shippingObjs = new Shipping();
                                     $shippingOption = $shippingObjs->getAllShippingFilter();
                                     foreach ($shippingOption as $shippingOptions) {
-                                        $selected = ($shippingOptions['companyID'] == $_REQUEST['companyID']) ? "selected" : "";
+                                        $selected = ($shippingOptions['id'] == $_REQUEST['id']) ? "selected" : "";
                                         echo "
-                                        <option value='{$shippingOptions['companyID']}' {$selected}>
+                                        <option value='{$shippingOptions['id']}' {$selected}>
                                         {$shippingOptions['name']}</option>
                                         ";
                                     }
@@ -57,7 +57,7 @@ use App\Models\Shipping;
                             <tbody>
                                 <?php
                                 $filters = array_intersect_key($_REQUEST, array_flip(
-                                    ['companyID']
+                                    ['id']
                                 ));
                                 $shippingObj = new Shipping();
                                 $shippings = $shippingObj->getAllShipping($filters);
@@ -69,7 +69,7 @@ use App\Models\Shipping;
                                             <td>{$n}</td>
 												<td>{$shipping['name']}</td>
 												<td>{$shipping['description']}</td>
-												<td><a href='detail_form.php?id={$shipping['companyID']}&action=read'class='btn btn-info'>ข้อมูลเพิ่มเติม</a></td>
+												<td><a href='detail_form.php?id={$shipping['id']}&action=read'class='btn btn-info'>ข้อมูลเพิ่มเติม</a></td>
 											</tr>
 										";
                                 }
