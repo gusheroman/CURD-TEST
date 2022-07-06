@@ -53,8 +53,8 @@ if ($_REQUEST['action'] == 'edit') {
                                 <input type="number" name="packageInsuranceFee" id="packageInsuranceFee" class="form-control" value="<?php echo $shipping['packageInsuranceFee']; ?>">
                             </div>
                             <div class="form-group">
-                                <label for="SpecialAreaFee">ค่าบริการพื้นที่พิเศษ (บาท)</label>
-                                <input type="number" name="SpecialAreaFee" id="SpecialAreaFee" class="form-control" value="<?php echo $shipping['SpecialAreaFee']; ?>">
+                                <label for="specialAreaFee">ค่าบริการพื้นที่พิเศษ (บาท)</label>
+                                <input type="number" name="specialAreaFee" id="specialAreaFee" class="form-control" value="<?php echo $shipping['specialAreaFee']; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="bounceChargeFee">ค่าบริการการตีกลับ (บาท)</label>

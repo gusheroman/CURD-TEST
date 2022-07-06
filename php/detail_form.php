@@ -52,7 +52,7 @@ $shipping = $shippingObj->getShippingById($_REQUEST['id']);
 												<td>ขนาด กว้าง*ยาว*สูง ไม่เกิน {$shipping['size']} ซม.</td>											
 											</tr>    
 										";
-                                    if ($shipping['SpecialAreaFee'] == 0) {
+                                    if ($shipping['specialAreaFee'] == 0) {
                                         echo "<tr>											
 												<td>ค่าบริการพื้นที่พิเศษ</td>
                                                 <td>ไม่มี</td>														
@@ -61,7 +61,7 @@ $shipping = $shippingObj->getShippingById($_REQUEST['id']);
                                         echo "
                                                 <tr>
                                                 <td>ค่าบริการพื้นที่พิเศษ</td>
-                                                <td>สูงสุดไม่เกิน {$shipping['SpecialAreaFee']} บาท</td>
+                                                <td>สูงสุดไม่เกิน {$shipping['specialAreaFee']} บาท</td>
                                                 </tr>";
                                     }
                                     if ($shipping['bounceChargeFee'] == 0) {

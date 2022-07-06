@@ -69,7 +69,7 @@ use App\Models\Shipping;
                                             <td>{$n}</td>
 												<td>{$shipping['name']}</td>
 												<td>{$shipping['description']}</td>
-												<td><a href='detail_form.php?id={$shipping['id']}&action=read'class='btn btn-info'>ข้อมูลเพิ่มเติม</a></td>
+												<td><a href='detail_form.php?id={$shipping['id']}&action=read'class='btn btn-info' style='width:100px'>ข้อมูลเพิ่มเติม</a></td>
 											</tr>
 										";
                                 }

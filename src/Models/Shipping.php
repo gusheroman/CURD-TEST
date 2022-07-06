@@ -26,7 +26,7 @@ class Shipping extends Db
         shippingcompany.weight,
         shippingcompany.size,
         shippingcompany.packageInsuranceFee,
-        shippingcompany.SpecialAreaFee,
+        shippingcompany.specialAreaFee,
         shippingcompany.bounceChargeFee,
         shippingcompany.createAt
         FROM 
@@ -65,7 +65,7 @@ class Shipping extends Db
         weight,
         size,
         packageInsuranceFee,
-        SpecialAreaFee,
+        specialAreaFee,
         bounceChargeFee) VALUES(
         :name,
         :description,
@@ -75,7 +75,7 @@ class Shipping extends Db
         :weight,
         :size,
         :packageInsuranceFee,
-        :SpecialAreaFee,
+        :specialAreaFee,
         :bounceChargeFee
         )";
         $stmt = $this->pdo->prepare($sql);
@@ -102,7 +102,7 @@ class Shipping extends Db
         shippingcompany.weight,
         shippingcompany.size,
         shippingcompany.packageInsuranceFee,
-        shippingcompany.SpecialAreaFee,
+        shippingcompany.specialAreaFee,
         shippingcompany.bounceChargeFee,
         shippingcompany.createAt
         FROM shippingcompany WHERE 
@@ -127,7 +127,7 @@ class Shipping extends Db
         weight = :weight,
         size = :size,
         packageInsuranceFee = :packageInsuranceFee,
-        SpecialAreaFee = :SpecialAreaFee,
+        specialAreaFee = :specialAreaFee,
         bounceChargeFee = :bounceChargeFee 
         WHERE id = :id
         ";
