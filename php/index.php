@@ -13,17 +13,17 @@ use App\Models\Shipping;
     <link rel="stylesheet" href="/assignment/theme/css/bootstrap-theme.css">
 </head>
 
-<body class="font-mali">
+<body class="font-kanit">
     <div class="container">
         <div class="row mt-5">
             <div class="col">
                 <div class="card mb-3">
                     <div class="card-header bg-secondary text-white d-flex justify-content-between">
-                        <h4>ข้อมูลขนส่ง</h4>
-                        <a href="create_form.php" class="btn btn-success">เพิ่มข้อมูลขนส่ง</a>
+                        <h4>ค้นหาเงื่อนไขขนส่ง</h4>
+                        <a href="create_form.php" class="btn btn-success">เพิ่มเงื่อนไขขนส่ง</a>
                     </div>
                     <div class="card-body">
-                        <form action="" class="form-inline" method="POST">
+                        <form action="" class="form-inline mb-4" method="POST">
                             <div class="input-group mr-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">ขนส่ง</div>
@@ -43,15 +43,15 @@ use App\Models\Shipping;
                                     ?>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">ค้นหา</button>
+                            <button type="submit" class="btn btn-primary">Search</button>
                         </form>
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Name</th>
-                                    <th>Detail</th>
-                                    <th>MoreDetail</th>
+                                    <th>ชื่อขนส่ง</th>
+                                    <th>รายละเอียด</th>
+                                    <th>ข้อมูลเพิ่มเติม</th>
                                 </tr>
                             </thead>
                             <tbody>

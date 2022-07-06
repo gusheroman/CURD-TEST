@@ -17,13 +17,13 @@ $shipping = $shippingObj->getShippingById($_REQUEST['id']);
     <link rel="stylesheet" href="/assignment/theme/css/bootstrap-theme.css">
 </head>
 
-<body class="font-mali">
+<body class="font-kanit">
     <div class="container">
         <div class="row mt-5">
             <div class="col">
                 <div class="card mb-3">
                     <div class="card-header bg-secondary text-white d-flex justify-content-between">
-                        <h4>ข้อมูลขนส่ง</h4>
+                        <h4>ข้อมูลเงื่อนไขขนส่ง</h4>
                         <a href="index.php" class="btn btn-light">ย้อนกลับ</a>
                     </div>
                     <div class="card-body">
